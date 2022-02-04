@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     # package
     "debug_toolbar",
+
+    # local app
+    "store"
 ]
 
 

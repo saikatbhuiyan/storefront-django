@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "debug_toolbar",
 
     # local app
-    "store"
+    "store",
+    "tags"
 ]
 
 

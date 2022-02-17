@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     # local app
     "store",
     "tags",
-    "likes"
+    "likes",
+    "store_custom"
 ]
 
 

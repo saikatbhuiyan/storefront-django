@@ -13,6 +13,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ['collection', 'last_update']
     list_per_page = 10
     list_select_related = ['collection']
+    search_fields = ['title']
 
     @admin.display(ordering='inventory')  # make orderable by inventory
     def inventory_status(self, product):
@@ -24,9 +25,12 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(models.Collection)
 class CollectionAdmin(admin.ModelAdmin):
     list_display = ['title', 'products_count']
+    search_fields = ['title']
 
     @admin.display(ordering='products_count')
     def products_count(self, collection):
+        """Make the `products_count` a link for show collection product"""
+
         url = (
             reverse('admin:store_product_changelist')
             + '?'
@@ -46,8 +50,9 @@ class CollectionAdmin(admin.ModelAdmin):
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name',  'membership', 'orders']
     list_editable = ['membership']
-    ordering = ['first_name', 'last_name']
     list_per_page = 10
+    ordering = ['first_name', 'last_name']
+    search_fields = ['first_name__istartswith', 'last_name__istartswith']
 
 
 @admin.register(models.Order)

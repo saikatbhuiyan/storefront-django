@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # package
     "debug_toolbar",
     "rest_framework",
+    "django_filters",
 
     # local app
     "store",

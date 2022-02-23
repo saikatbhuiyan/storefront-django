@@ -3,29 +3,31 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework import status
 from .models import Product, Collection
 from .serializers import ProductSerializer, CollectionSerializer
+from store import serializers
 
 
-class ProductList(APIView):
-    def get(self, request):
-        queryset = Product.objects.select_related('collection').all()
-        serializer = ProductSerializer(
-            queryset, many=True, context={'request': request})
-        return Response(serializer.data)
+class ProductList(ListCreateAPIView):
+    queryset = Product.objects.select_related('collection').all()
+    serializer_class = ProductSerializer
 
-    def post(self, request):
-        serializer = ProductSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
+    # def get_queryset(self):
+    #     return Product.objects.select_related('collection').all()
+
+    # def get_serializer(self):
+    #     return ProductSerializer
+
+    def get_serializer_context(self):
+        return {'request': self.request}
 
 
-class ProductDetail(APIView):
-    def get(self, request, id):
-        product = get_object_or_404(Product, pk=id)
-        serializer = ProductSerializer(product)
-        return Response(serializer.data)
+class ProductDetail(RetrieveUpdateDestroyAPIView):
+
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
     def put(self, request):
         product = get_object_or_404(Product, pk=id)
@@ -34,12 +36,46 @@ class ProductDetail(APIView):
         serializer.save()
         return Response(serializer.data)
 
-    def delete(self, request):
-        product = get_object_or_404(Product, pk=id)
+    def delete(self, request, pk):
+        product = get_object_or_404(Product, pk=pk)
         if product.orderitems.count() > 0:
             return Response({'error': 'Product cannot be deleted because it is associated with an order item.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
         product.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+# class ProductList(APIView):
+#     def get(self, request):
+#         queryset = Product.objects.select_related('collection').all()
+#         serializer = ProductSerializer(
+#             queryset, many=True, context={'request': request})
+#         return Response(serializer.data)
+
+#     def post(self, request):
+#         serializer = ProductSerializer(data=request.data)
+#         serializer.is_valid(raise_exception=True)
+#         serializer.save()
+
+
+# class ProductDetail(APIView):
+#     def get(self, request, id):
+#         product = get_object_or_404(Product, pk=id)
+#         serializer = ProductSerializer(product)
+#         return Response(serializer.data)
+
+#     def put(self, request):
+#         product = get_object_or_404(Product, pk=id)
+#         serializer = ProductSerializer(product, data=request.data)
+#         serializer.is_valid(raise_exception=True)
+#         serializer.save()
+#         return Response(serializer.data)
+
+#     def delete(self, request):
+#         product = get_object_or_404(Product, pk=id)
+#         if product.orderitems.count() > 0:
+#             return Response({'error': 'Product cannot be deleted because it is associated with an order item.'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+#         product.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 # @api_view(['GET', 'POST'])

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class StoreCustomConfig(AppConfig):
+class CoreConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'store_custom'
+    name = 'core'

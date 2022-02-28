@@ -11,10 +11,12 @@ from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyM
 from rest_framework.permissions import AllowAny, DjangoModelPermissions, DjangoModelPermissionsOrAnonReadOnly, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
+from .filters import ProductFilter
 from .pagination import DefaultPagination
 from .models import Cart, CartItem, Product, Collection, Review, Customer
-from .serializers import ProductSerializer, CollectionSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer, CustomerSerializer
-from .filters import ProductFilter
+from .serializers import ProductSerializer, CollectionSerializer, ReviewSerializer, CartSerializer, \
+    CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer, CustomerSerializer
+from store.permissions import IsAdminOrReadOnly
 
 
 class ProductViewSet(ModelViewSet):
@@ -23,6 +25,7 @@ class ProductViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = ProductFilter
     pagination_class = DefaultPagination
+    permission_classes = [IsAdminOrReadOnly]
     search_fields = ['title', 'description', 'collection__title']
     ordering_fields = ['unit_price', 'last_update', ]
 
@@ -48,6 +51,7 @@ class CollectionViewSet(ModelViewSet):
     queryset = Collection.objects.annotate(
         products_count=Count('products')).all()
     serializer_class = CollectionSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def delete(self, request, pk):
         collection = get_object_or_404(Collection, pk=pk)

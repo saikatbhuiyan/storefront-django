@@ -19,12 +19,3 @@ carts_router.register('items', views.CartItemViewSet, basename='cart-items')
 
 # URLConf
 urlpatterns = router.urls + products_router.urls + carts_router.urls
-
-# urlpatterns = [
-#     path('products/', router.urls),
-#     path('products/', views.ProductList.as_view()),
-#     path('products/<int:pk>/', views.ProductDetail.as_view()),
-#     path('collections/', views.collection_list),
-#     path('collections/<int:pk>/', views.collection_detail,
-#          name='collection-detail'),
-# ]

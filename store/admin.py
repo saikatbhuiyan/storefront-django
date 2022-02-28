@@ -7,7 +7,6 @@ from . import models
 
 
 class InventoryFilter(admin.SimpleListFilter):
-    """This is custom filter for Inventory Filter"""
     title = 'inventory'
     parameter_name = 'inventory'
 
@@ -39,7 +38,7 @@ class ProductAdmin(admin.ModelAdmin):
     def collection_title(self, product):
         return product.collection.title
 
-    @admin.display(ordering='inventory')  # make orderable by inventory
+    @admin.display(ordering='inventory')
     def inventory_status(self, product):
         if product.inventory < 10:
             return 'Low'
@@ -51,7 +50,7 @@ class ProductAdmin(admin.ModelAdmin):
         self.message_user(
             request,
             f'{updated_count} products were successfully updated.',
-            messages.SUCCESS
+            messages.ERROR
         )
 
 

@@ -13,6 +13,7 @@ djoser = "*"
 djangorestframework-simplejwt = "*"
 pillow = "*"
 django-cors-headers = "*"
+django-templated-mail = "*"
 
 [dev-packages]
 autopep8 = "*"

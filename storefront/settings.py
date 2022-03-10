@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "djoser",
 
     # local app
+    "emailing",
     "store",
     "tags",
     "likes",
@@ -189,3 +190,6 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 2525
 DEFAULT_FROM_EMAIL = 'from@buy.com'
+ADMINS = [
+    ('Mosh', 'admin@buy.com')  # send email using mail_admins
+]

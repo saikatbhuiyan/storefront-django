@@ -12,5 +12,8 @@ see worker command
 celery -A storefront worker --loglevel=info
 
 see beat schedule
-celery -A storefront beat 
+celery -A storefront beat
+
+monitor task using flower
+celery -A storefront flower
 """

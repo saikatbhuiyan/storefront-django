@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # package
-    "corsheaders"
+    "corsheaders",
     "debug_toolbar",
     "rest_framework",
     "django_filters",

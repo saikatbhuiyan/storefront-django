@@ -18,6 +18,7 @@ redis = "*"
 celery = "*"
 flower = "*"
 django-redis = "*"
+drf-nested-routers = "*"
 
 [dev-packages]
 autopep8 = "*"

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_filters",
     "djoser",
+    "silk",
 
     # local app
     "emailing",
@@ -67,6 +68,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# if DEBUG:
+#     MIDDLEWARE += ['silk.middleware.SilkyMiddleware']
+
 
 INTERNAL_IPS = [
     # ...

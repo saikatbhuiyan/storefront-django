@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "8f0906dd920f0eba7cca14c6a709ac8b92f6d2dd8e6a569fe816d2c8c89ac499"
+            "sha256": "3ad6859dc3f53606006ea327c9b6a7016ea6f4805332896b57296b90a65be622"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -928,6 +928,14 @@
             "index": "pypi",
             "version": "==4.0.3"
         },
+        "django-silk": {
+            "hashes": [
+                "sha256:15ce316ac56d202bc7f0edab52d90d9b5282a41cbef9e38faab27e642d8a4e2b",
+                "sha256:b010e51d9a2408ca0471bc943941676950f1d2906af3d09f9ffcd56f232688fc"
+            ],
+            "index": "pypi",
+            "version": "==4.3.0"
+        },
         "docopt": {
             "hashes": [
                 "sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
@@ -1040,6 +1048,12 @@
                 "sha256:fbeb1ed7228fc406229c8693f8a02b8e064f7a9979665ac0181c983667cc383c"
             ],
             "version": "==1.5.3"
+        },
+        "gprof2dot": {
+            "hashes": [
+                "sha256:1223189383b53dcc8ecfd45787ac48c0ed7b4dbc16ee8b88695d053eea1acabf"
+            ],
+            "version": "==2021.2.21"
         },
         "greenlet": {
             "hashes": [
@@ -1341,6 +1355,21 @@
             ],
             "index": "pypi",
             "version": "==4.2.0"
+        },
+        "python-dateutil": {
+            "hashes": [
+                "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86",
+                "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==2.8.2"
+        },
+        "pytz": {
+            "hashes": [
+                "sha256:1e760e2fe6a8163bc0b3d9a19c4f84342afa0a2affebfaa84b01b978a02ecaa7",
+                "sha256:e68985985296d9a66a881eb3193b0906246245294a881e7c8afe623866ac6a5c"
+            ],
+            "version": "==2022.1"
         },
         "pywin32": {
             "hashes": [

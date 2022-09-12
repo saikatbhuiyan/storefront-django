@@ -2,3 +2,4 @@
 /media/
 /static/
 /migrations/
+/__pycache__/

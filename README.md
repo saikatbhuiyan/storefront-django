@@ -41,6 +41,9 @@ python manage.py runserver
 ### Run performance test
 
 `locust -f locustfiles/browse_products.py`
+
+
+### Images
 ![storefront_1](https://user-images.githubusercontent.com/44515748/189697762-730e819d-daff-4130-a67a-3edc14ba9307.PNG)
 
 

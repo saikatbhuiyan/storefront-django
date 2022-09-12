@@ -19,6 +19,9 @@ celery = "*"
 flower = "*"
 django-redis = "*"
 drf-nested-routers = "*"
+psycopg2 = "*"
+drf-spectacular = "*"
+django-dotenv = "*"
 
 [dev-packages]
 autopep8 = "*"

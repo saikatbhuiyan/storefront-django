@@ -44,3 +44,10 @@ DRF has three types of views:
 3. [Generic Views](https://testdriven.io/blog/drf-views-part-2/) typically take the abstraction further by inferring the response format, allowed methods, and payload shape based on the serializer.
 
 > We'll be using the `APIView` class view in this course. Feel free to check your understanding by implementing your API with a different type of view.
+
+
+
+```
+$ docker-compose exec movies python manage.py flush
+$ docker-compose exec movies python manage.py loaddata movies.json
+```
